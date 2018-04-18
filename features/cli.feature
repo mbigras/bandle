@@ -13,3 +13,10 @@ Feature: Basic command line interface
       """
       parse error
       """
+
+  Scenario: Checking the version
+    When I run `bandle --version`
+    Then it should pass matching:
+      """
+      \d+\.\d+\.\d+
+      """

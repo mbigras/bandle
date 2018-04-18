@@ -2,9 +2,11 @@
 require 'bandle'
 require 'methadone'
 
-class App
+class CLI
   include Methadone::Main
   include Methadone::CLILogging
+
+  version Bandle::VERSION, compact: true
 
   main do |needed, maybe|
     options[:switch]
