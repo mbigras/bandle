@@ -1,11 +1,12 @@
 FROM alpine:edge
-ENV BANDLE_ENV=production
 RUN apk add \
+	build-base \
 	git \
+	libffi-dev \
 	ruby-bundler \
+	ruby-dev \
 	ruby-full
 
 WORKDIR /app
 COPY . .
-RUN bundle install --without development \
-		&& rake install
+RUN bin/setup
