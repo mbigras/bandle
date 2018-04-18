@@ -8,17 +8,17 @@ class CLI
 
   version Bandle::VERSION, compact: true
 
-  main do |needed, maybe|
+  main do |name, maybe|
     options[:switch]
     options[:flag]
-    puts "hello #{needed}!"
+    puts "hello #{Bandle::Thing.new name}!"
   end
 
   # Proxy to an OptionParser instance's on method
   on("--[no]-switch")
   on("--flag VALUE")
 
-  arg :needed
+  arg :name
   arg :maybe, :optional
 
   # defaults_from_env_var SOME_VAR
