@@ -1,4 +1,27 @@
 #!/usr/bin/env ruby
 require 'bandle'
+require 'methadone'
 
-puts 'hello world!'
+class App
+  include Methadone::Main
+  include Methadone::CLILogging
+
+  main do |needed, maybe|
+    options[:switch]
+    options[:flag]
+    puts "hello #{needed}!"
+  end
+
+  # Proxy to an OptionParser instance's on method
+  on("--[no]-switch")
+  on("--flag VALUE")
+
+  arg :needed
+  arg :maybe, :optional
+
+  # defaults_from_env_var SOME_VAR
+  defaults_from_config_file '.my_app.rc'
+
+  go!
+end
+

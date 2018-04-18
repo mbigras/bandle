@@ -1,7 +1,15 @@
 Feature: Basic command line interface
-  Scenario: Running with no arguments
+
+  Scenario: Happy path: Running with one argument
+      When I run `bandle world`
+      Then it should pass with:
+        """
+        hello world!
+        """
+
+  Scenario: Unhappy path: running with no arguments
     When I run `bandle`
-    Then it should pass with:
+    Then it should fail matching:
       """
-      hello world!
+      parse error
       """
