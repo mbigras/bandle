@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mbigras/bandle.svg?branch=master)](https://travis-ci.org/mbigras/bandle)
+
 # Bandle
 
 > Gem managed with bundler
