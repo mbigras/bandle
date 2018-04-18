@@ -7,3 +7,9 @@
 ```
 docker build --tag mbigras/bandle .
 ```
+
+## Development
+
+```
+docker build --tag mbigras/bandle:dev -f Dockerfile.dev .
+```
